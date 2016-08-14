@@ -14,9 +14,9 @@ Market: SF
 ### What are the objectives?
 *After this workshop, developers will be able to:*
 
-- Know the difference between $http and $resource
-- Describe what a factory is in Angular
-- Refactor $http using $resource in a factory
+- **Know** the difference between $http and $resource
+- **Describe** what a factory is in Angular
+- **Refactor** $http using $resource in a factory
 
 ### Where should we be now?
 *Before this workshop, developers should already be able to:*
@@ -102,12 +102,46 @@ Specifically, $resource is what is known as a factory in Angular.
 itself</p>
 </details>
 
+### What does that mean for the code?
+
+#### Declaring
+```javascript
+  angular.service('myService', myServiceFunction);
+  angular.factory('myFactory', myFactoryFunction);
+```
+
+#### Injecting (behind the scenes)
+```javascript
+myInjectedService  <----  new myServiceFunction()
+myInjectedFactory  <----  myFactoryFunction()
+```
+
+#### Constructor vs Non-Constructor
+```javascript
+function myServiceFunction() {
+  this.awesomeApi = function(optional) {
+    // calculate some stuff
+    return awesomeListOfValues;
+  }
+}
+
+function myFactoryFunction() {
+  function awesomeApi(optional) {
+    return awesomeListOfValues;
+  }
+
+  // expose a public API
+  return {
+    awesomeApi: awesomeApi
+  };
+}
+```
 #### Putting it together
 <details>
   <summary>How is a factory different from a service?
 </summary>
-  <p>1. A factory is not a constructor function <br>
-  2. A factory returns an object.</p>
+  <p>1. A factory is not a constructor function.</p>
+  <p>2. A factory returns an object.</p>
 </details>
 
 ## Independent Practice
@@ -144,3 +178,7 @@ ruby -rwebrick -e 'WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.p
 [Angular $resource docs](https://docs.angularjs.org/api/ngResource/service/$resource)
 
 [CRUD using $resource](http://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/)
+
+[Factory vs Service](http://stackoverflow.com/questions/14324451/angular-service-vs-angular-factory)
+
+[Factory vs Service vs Provider](https://tylermcginnis.com/angularjs-factory-vs-service-vs-provider-5f426cfe6b8c#.jfi32r7jr)
