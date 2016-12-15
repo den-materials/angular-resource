@@ -5,6 +5,10 @@ Market: SF
 
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
+<!--9:45 5 minutes -->
+
+<!--Hook: Remember RESTful routing?  Wouldn't it be great if there were a way to bundle all of our RESTful routes together so we don't have to write 7 AJAX requests with a lot of duplicated code?  It would be great, wouldn't it?  BAM, Angular $resource to the rescue. -->
+
 # Angular $resource
 
 ### Why is this important?
@@ -23,10 +27,14 @@ Market: SF
 
 - Set up $http in Angular to hit an API from an Angular app.
 
+<!--9:50 5 minutes -->
+
 ## Angular Review Questions
 - What is Angular for?
-- What is a SPA? Why does Angular make SPAs easier to build?
-- Summarize the answer from the Reddit question.
+- What is an SPA? Why does Angular make SPAs easier to build?
+- [Summarize the answer from the Reddit question.](https://www.reddit.com/r/webdev/comments/4r8zc9/where_do_frameworks_like_angular_or_react_come_in/)
+
+<!--9:55 5 minutes -->
 
 ## $http Review
 <details>
@@ -37,8 +45,6 @@ Market: SF
   <summary>What does $http have to do with SPAs?</summary>
   <p>In single page applications we don't have page refreshes. Everything is done using asynchronous http requests using client side JS. In angular we do that using the $http service</p>
 </details>
-
-
 
 ### Code Example
 
@@ -52,13 +58,12 @@ function addCriminal(){
     self.newCriminal = {};
   }
 ```
+
+<!--10:00 5 minutes -->
+
 ## $resource
 
-$resource in Angular is a helper method that gives us all of the $http CRUD verbs in one method. Kind of like how
-```ruby
-resources :criminals
-```
-will give you all of the CRUD routes in Ruby on Rails
+`$resource` in Angular is a helper method that gives us all of the $http CRUD verbs in one method.
 
 Of course these aren't routes, they are AJAX requests. Here's an example:
 
@@ -74,7 +79,7 @@ Of course these aren't routes, they are AJAX requests. Here's an example:
   };
 ```
 
-Specifically, $resource is what is known as a factory in Angular.
+Specifically, `$resource` is what is known as a factory in Angular.
 
 <details>
   <summary>What is the relationship between http and resource?
@@ -82,49 +87,33 @@ Specifically, $resource is what is known as a factory in Angular.
   <p>$resource is a layer of abstraction on $http which provides all of the $http methods to be called on the resource.</p>
 </details>
 
+<!--10:05 10 minutes -->
 
 ### What is a factory?
 
-- A factory is like a Service in Angular, but it is NOT a constructor function.
-- A factory returns an object.
+Now is a good time to talk a bit more about Factories in Angular and what they do.
 
-#### Review:
-<details>
-  <summary>What is a constructor function?
-</summary>
-  <p>A JS method that we use the `new` keyword with that returns an object.</p>
-</details>
+Factories are a way to DRY out your code and separate concerns by _modularizing_ your code.  They make methods and properties available by returning an object that can be included wherever it is needed.  What does that remind you of from node?
 
-<details>
-  <summary>What is a service?
-</summary>
-  <p>A method on our module used like helper methods. It uses the `this` keyword to attach functions to
-itself</p>
-</details>
+<!--module.exports and require in node -->
+
+- A factory returns an object of properties and methods.
+- A factory can be `injected` to make those properties and methods available elsewhere.
 
 ### What does that mean for the code?
 
 #### Declaring
 ```javascript
-  angular.service('myService', myServiceFunction);
   angular.factory('myFactory', myFactoryFunction);
 ```
 
 #### Injecting (behind the scenes)
 ```javascript
-myInjectedService  <----  new myServiceFunction()
 myInjectedFactory  <----  myFactoryFunction()
 ```
 
-#### Constructor vs Non-Constructor
+#### Factory Function
 ```javascript
-function myServiceFunction() {
-  this.awesomeApi = function(optional) {
-    // calculate some stuff
-    return awesomeListOfValues;
-  }
-}
-
 function myFactoryFunction() {
   function awesomeApi(optional) {
     return awesomeListOfValues;
@@ -137,41 +126,31 @@ function myFactoryFunction() {
 }
 ```
 #### Putting it together
-<details>
-  <summary>How is a factory different from a service?
-</summary>
-  <p>1. A factory is not a constructor function.</p>
-  <p>2. A factory returns an object.</p>
-</details>
+
+- What is a factory?
+- Why would we use them?
+
+<!--10:15 35 minutes -->
 
 ## Independent Practice
 
-Refactor your Infamous Criminals app from yesterday to use $resource!
+Refactor your Infamous Criminals app from Monday to use $resource!
 
 Setup:
 
-- The $resource service doesn’t come bundled with the main Angular script. Run bower install --save angular-resource
-
-
+- The $resource factory doesn’t come bundled with the main Angular script. Run `bower install --save angular-resource`
 - Add a link to the angular-resource module in your index.html (BELOW angular.js!):
 
  ` <script src="bower_components/angular-resource/angular-resource.min.js"></script>`
-
-OR simply use the CDN:
-
-`"https://www.ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-resource.js"
- `
 
 - Now you need to load the $resource module into your application.
 
   `angular.module('app', [..., 'ngResource']);`
 
-- In the application directory run a local server:
+- In the application directory, run a local server:
 
 ```bash
 python -m SimpleHTTPServer 8000
-# or
-ruby -rwebrick -e 'WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd).start'
 ```
 
 ## Additional Resources
