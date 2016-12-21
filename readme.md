@@ -59,6 +59,8 @@ function addCriminal(){
   }
 ```
 
+<!--Actually 9:58 -->
+
 <!--10:00 5 minutes -->
 
 ## $resource
@@ -87,6 +89,8 @@ Specifically, `$resource` is what is known as a factory in Angular.
   <p>$resource is a layer of abstraction on $http which provides all of the $http methods to be called on the resource.</p>
 </details>
 
+<!--Actually 10:08 -->
+
 <!--10:05 10 minutes -->
 
 ### What is a factory?
@@ -104,7 +108,7 @@ Factories are a way to DRY out your code and separate concerns by _modularizing_
 
 #### Declaring
 ```javascript
-  angular.factory('myFactory', myFactoryFunction);
+  app.factory('myFactory', myFactoryFunction);
 ```
 
 #### Injecting (behind the scenes)
