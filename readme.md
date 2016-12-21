@@ -166,6 +166,8 @@ Setup:
 python -m SimpleHTTPServer 8000
 ```
 
+- Finally, make sure your Node API is running, too.
+
 ## Additional Resources
 [Angular $resource docs](https://docs.angularjs.org/api/ngResource/service/$resource)
 
