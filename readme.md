@@ -82,7 +82,7 @@ Of course these aren't routes, they are AJAX requests. Here's an example:
 Specifically, `$resource` is what is known as a factory in Angular.
 
 <details>
-  <summary>What is the relationship between http and resource?
+  <summary>What is the relationship between $http and $resource?
 </summary>
   <p>$resource is a layer of abstraction on $http which provides all of the $http methods to be called on the resource.</p>
 </details>
