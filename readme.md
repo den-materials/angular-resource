@@ -127,6 +127,8 @@ function myFactoryFunction() {
 ```
 #### Putting it together
 
+<!-- Think-pair-share -->
+
 - What is a factory?
 - Why would we use them?
 
@@ -146,6 +148,10 @@ Setup:
 - Now you need to load the $resource module into your application.
 
   `angular.module('app', [..., 'ngResource']);`
+
+- Don't forget to `$inject` `$resource` into your `Criminal` factory.
+
+- Don't forget to `$inject` that factory into your controller.
 
 - In the application directory, run a local server:
 
