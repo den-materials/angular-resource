@@ -138,6 +138,14 @@ function myFactoryFunction() {
 
 <!--Actually 10:16 -->
 
+<!--This lab is really hard to just throw them into -- first off, watch any reference to other factories--they are using $resource, just focus on the $resource code -->
+
+<!-- Also, there are issues with Angular versions and shitty errors that make no sense, even to me.  To fix them, you need to include 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
+
+...we should just change this in http-lab.  We should also make sure that criminals.getAll returns criminals instead of {criminals: criminals}, cuz that breaks .query().  Fixing criminals controller inside the API for this.  -->
+
 <!--10:15 35 minutes -->
 
 ## Independent Practice
