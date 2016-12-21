@@ -146,6 +146,7 @@ Refactor your Infamous Criminals app from Monday to use $resource!
 
 Setup:
 
+- The `http-lab` frontend does not have bower in it yet, so how do you start a new bower project in the `frontend` folder?
 - The $resource factory doesn’t come bundled with the main Angular script. Run `bower install --save angular-resource`
 - Add a link to the angular-resource module in your index.html (BELOW angular.js!):
 
