@@ -37,13 +37,17 @@ Market: SF
 <!--9:55 5 minutes -->
 
 ## $http Review
+
 <details>
   <summary>What is $http?</summary>
-  <p>[$http](https://docs.angularjs.org/api/ng/service/$http) is a core Angular service that facilitates communication with remote HTTP servers via the browser's XMLHttpRequest object or via JSONP. It is very similar to jQuery's $.ajax function.</p>
+  <p>
+    <a href="https://docs.angularjs.org/api/ng/service/$http">$http</a> is a core Angular service that facilitates            communication with remote HTTP servers via the browser's XMLHttpRequest object or via JSONP. It is very similar to jQuery's $.ajax function.
+  </p>
 </details>
+
 <details>
   <summary>What does $http have to do with SPAs?</summary>
-  <p>In single page applications we don't have page refreshes. Everything is done using asynchronous http requests using client side JS. In angular we do that using the $http service</p>
+  <p>In single page applications, we don't have page refreshes. Everything is done using asynchronous http requests using client side JS. In Angular, we do that using the $http service</p>
 </details>
 
 ### Code Example
@@ -108,27 +112,30 @@ Factories are a way to DRY out your code and separate concerns by _modularizing_
 
 #### Declaring
 ```javascript
-  app.factory('myFactory', myFactoryFunction);
+app.factory('Car', Car);
 ```
 
 #### Injecting (behind the scenes)
 ```javascript
 myInjectedFactory  <----  myFactoryFunction()
+
+CarController.$inject = ["Car"];
+
+function CarController(Car) {
+  ...
+}
 ```
 
 #### Factory Function
 ```javascript
-function myFactoryFunction() {
-  function awesomeApi(optional) {
-    return awesomeListOfValues;
+Car.$inject = ["$resource"];
+function Car($resource) {
+    return $resource("http://localhost:3000/cars/:id")
   }
-
-  // expose a public API
-  return {
-    awesomeApi: awesomeApi
-  };
-}
 ```
+
+**Note:** You should `console.log($resource("http://localhost:3000/resource/:id"))` to see what's inside.  What are you really returning?
+
 #### Putting it together
 
 <!-- Think-pair-share -->
@@ -136,9 +143,7 @@ function myFactoryFunction() {
 - What is a factory?
 - Why would we use them?
 
-<!--Actually 10:16 -->
-
-<!--This lab is really hard to just throw them into -- first off, watch any reference to other factories--they are using $resource, just focus on the $resource code -->
+<!--Actually 10:16 WDI2-->
 
 <!-- Also, there are issues with Angular versions and shitty errors that make no sense, even to me.  To fix them, you need to include 
 
@@ -150,7 +155,7 @@ function myFactoryFunction() {
 
 ## Independent Practice
 
-Refactor your Infamous Criminals app from Monday to use $resource!
+Refactor your Infamous Criminals app from Wednesday to use $resource!
 
 Setup:
 
