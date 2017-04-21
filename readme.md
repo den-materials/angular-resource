@@ -115,6 +115,14 @@ Factories are a way to DRY out your code and separate concerns by _modularizing_
 app.factory('Car', Car);
 ```
 
+#### Factory Function
+```javascript
+Car.$inject = ["$resource"];
+function Car($resource) {
+    return $resource("http://localhost:3000/cars/:id")
+  }
+```
+
 #### Injecting (behind the scenes)
 ```javascript
 myInjectedFactory  <----  myFactoryFunction()
@@ -124,14 +132,6 @@ CarController.$inject = ["Car"];
 function CarController(Car) {
   ...
 }
-```
-
-#### Factory Function
-```javascript
-Car.$inject = ["$resource"];
-function Car($resource) {
-    return $resource("http://localhost:3000/cars/:id")
-  }
 ```
 
 **Note:** You should `console.log($resource("http://localhost:3000/resource/:id"))` to see what's inside.  What are you really returning?
