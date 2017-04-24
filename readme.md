@@ -134,7 +134,7 @@ function CarController(Car) {
 }
 ```
 
-**Note:** You should `console.log($resource("http://localhost:3000/resource/:id"))` to see what's inside.  What are you really returning?
+**Note:** You should `console.log($resource("http://localhost:3000/resource/:id"))` to see what's inside.  What kind of function are you really returning?
 
 #### Putting it together
 
@@ -145,12 +145,6 @@ function CarController(Car) {
 
 <!--Actually 10:16 WDI2-->
 
-<!-- Also, there are issues with Angular versions and shitty errors that make no sense, even to me.  To fix them, you need to include 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.10/angular.min.js"></script>
-
-...we should just change this in http-lab.  We should also make sure that criminals.getAll returns criminals instead of {criminals: criminals}, cuz that breaks .query().  Fixing criminals controller inside the API for this.  -->
-
 <!--10:15 35 minutes -->
 
 ## Independent Practice
@@ -159,8 +153,6 @@ Refactor your Infamous Criminals app from Wednesday to use $resource!
 
 Setup:
 
-- The `http-lab` frontend does not have bower in it yet, so how do you start a new bower project in the `frontend` folder?
-- Install angular with bower and include it in your HTML
 - The $resource factory doesn’t come bundled with the main Angular script. Run `bower install --save angular-resource`
 - Add a link to the angular-resource module in your index.html (BELOW angular.js!):
 
@@ -181,6 +173,10 @@ python -m SimpleHTTPServer 8000
 ```
 
 - Finally, make sure your Node API is running, too.
+
+- The syntax for `$resource` can be a bit tricky.  A good place to start is the [CRUD using $resource](http://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/) article.
+
+<!--Make sure you leave enough time at the end to go through solution, and potentially show another Factory example (sensus?) to drive the point home -->
 
 ## Additional Resources
 [Angular $resource docs](https://docs.angularjs.org/api/ngResource/service/$resource)
