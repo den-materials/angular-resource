@@ -5,6 +5,7 @@ Market: SF
 
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
+<!--9:40 WDI3 -->
 <!--9:45 5 minutes -->
 
 <!--Hook: Remember RESTful routing?  Wouldn't it be great if there were a way to bundle all of our RESTful routes together so we don't have to write 7 AJAX requests with a lot of duplicated code?  It would be great, wouldn't it?  BAM, Angular $resource to the rescue. -->
@@ -27,6 +28,7 @@ Market: SF
 
 - Set up $http in Angular to hit an API from an Angular app.
 
+<!--9:42 WDI3-->
 <!--9:50 5 minutes -->
 
 ## Angular Review Questions
@@ -34,6 +36,7 @@ Market: SF
 - What is an SPA? Why does Angular make SPAs easier to build?
 - [Summarize the answer from the Reddit question.](https://www.reddit.com/r/webdev/comments/4r8zc9/where_do_frameworks_like_angular_or_react_come_in/)
 
+<!--9:48 WDI3 -->
 <!--9:55 5 minutes -->
 
 ## $http Review
@@ -63,7 +66,8 @@ function addCriminal(){
   }
 ```
 
-<!--Actually 9:58 -->
+<!--Actually 9:58 WDI@-->
+<!--9:54 WDI3 -->
 
 <!--10:00 5 minutes -->
 
@@ -93,8 +97,9 @@ Specifically, `$resource` utilizes what is known as a factory in Angular.
   <p>$resource is a layer of abstraction on $http which provides all of the $http methods to be called on the resource.</p>
 </details>
 
-<!--Actually 10:08 -->
+<!--Actually 10:08 WDI2-->
 
+<!--10:00 WDI3 -->
 <!--10:05 10 minutes -->
 
 ### What is a factory?
@@ -144,6 +149,7 @@ function CarController(Car) {
 - Why would we use them?
 
 <!--Actually 10:16 WDI2-->
+<!--10:05 WDI3, 10:15 when turning over to devs -->
 
 <!--10:15 35 minutes -->
 
